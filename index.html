@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>3D AR 線上體驗</title>
+    <title>3D AR 線上體驗 (優化視角與燈光)</title>
     
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     
@@ -54,7 +54,7 @@
         }
 
         /* 當手機不支援 AR 功能時，自動隱藏按鈕 */
-        model-viewer:not([ar-status="not-presenting"]) .ar-button {
+        model-viewer:not([ar-status="activate"]) .ar-button {
             display: none;
         }
 
@@ -92,7 +92,9 @@
         camera-controls 
         touch-action="pan-y"
         shadow-intensity="1"
-        exposure="1"
+        exposure="2" 
+        tone-mapping="aces"
+        camera-orbit="30deg 60deg 80%" 
         auto-rotate>
         
         <div class="progress-bar" slot="progress-bar">
